@@ -1,0 +1,41 @@
+# UX
+super + Return
+	kitty
+
+super + d
+	~/.config/rofi/scripts/launcher_t1
+
+super + o
+	~/.config/rofi/scripts/powermenu_t2
+
+super + e
+	nemo
+
+super + shift + q
+	bspc node -{c}
+
+super + {_,shift + }{1-9,10}
+	bspc {desktop -f,node -d} '^{1-9,10}'
+
+super + {t,shift+t,v,f}
+	bspc node -t {tiled,pseudo_tiled,\~floating,\~fullscreen}
+	bspc node -g {marked,locked,sticky,private}
+
+super + {_,shift + }{Left,Down,Up,Right}
+	bspc node -{f,s} {west,south,north,east}
+
+super + shift + s
+	flameshot gui -p ~/Screenshots
+
+XF86Audio{Raise,Lower}Volume
+	pactl set-sink-volume @DEFAULT_SINK@ {+,-}5%
+
+XF86AudioMute
+	pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+# SYSTEM
+super + ctrl + s
+	pkill -USR1 -x sxhkd
+
+super + shift + r
+	bspc wm -r
